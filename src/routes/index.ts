@@ -6,8 +6,8 @@ import firebaseAdminNotificationRouter from "./notificationfirebaseadmin/notific
 
 const router = express.Router();
 
-router.use('/api/user', userRouter);
-router.use('/notification/fcm', fcmNotificationRouter);
-router.use('/notification/firebaseadmin', firebaseAdminNotificationRouter);
+router.use("/api/user", userRouter);
+router.use("/notification/fcm", fcmNotificationRouter);
+router.use("/notification/firebaseadmin", firebaseAdminNotificationRouter);
 
 export default router;

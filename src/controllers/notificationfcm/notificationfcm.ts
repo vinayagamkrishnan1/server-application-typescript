@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import { FCM_SERVER_KEY } from "../../constants/constants";
 // import * as FCM from "fcm-node";
-const FCM = require('fcm-node');
+const FCM = require("fcm-node");
 
 const fcm = new FCM(FCM_SERVER_KEY); 
 
