@@ -1,7 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
 const createUser = async(request: Request, response: Response, next: NextFunction) => {
-    console.log("Controller::::", request);
     try {
         response.json({
             message: "User created."
@@ -37,7 +36,6 @@ const getUserById = async(request: Request, response: Response, next: NextFuncti
             message: "User detail returned."
         });
     } catch (error) {
-        console.log(":::::::::", JSON.stringify(error));
         response.json({message: "Failed to return user details."});
     }
 }

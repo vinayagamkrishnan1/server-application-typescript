@@ -10,13 +10,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const constants_1 = require("../../constants/constants");
 // import * as FCM from "fcm-node";
-var FCM = require('fcm-node');
+const FCM = require('fcm-node');
 const fcm = new FCM(constants_1.FCM_SERVER_KEY);
 const sendNotification = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { registration_ids, title, body } = request.body;
-    console.log("req", registration_ids);
-    console.log("res", title);
-    console.log("next", body);
     let ids = [
         "f8fR58EcR5OKGeHkMXAYoX:APA91bGZISlJeVZC0eA5GpUmYBDNtudoHC-460F6nkFL2wlwq4b7OoEGFnwo97AZFkIstoKUma7FRettTRKjPolnQ7xGyLXvhBR8dOh8Nt89DUuyg2aOQc0QYTA7RlI4LQjXmeSm0xrR",
         "cIFioSgNQwSdByVWp8e42R:APA91bG27YZAJ7Dg6yhYjmUWFnGUc0Xhm_H_PJ7wMO-yndoneHbDbs9Tz4KJbIgAIZhWn3NaXHoYCWTRSXEf5YIzhfarBWUfTwiDckg6uC88Hn4_ImY4-tSGjYHLdXxh1vA2ac0wcF2C"

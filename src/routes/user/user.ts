@@ -3,7 +3,6 @@ import { userController } from "../../controllers/index";
 const router = express.Router();
 
 router.post('/create', async (req: Request, res: Response, next: NextFunction) => {
-  console.log("route::::", req);
   userController.createUser(req, res, next);
 });
 
