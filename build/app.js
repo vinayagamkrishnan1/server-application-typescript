@@ -10,9 +10,7 @@ const compression_1 = __importDefault(require("compression"));
 const morgan_1 = __importDefault(require("morgan"));
 const helmet_1 = __importDefault(require("helmet"));
 const cors_1 = __importDefault(require("cors"));
-// import userRoutes from "../src/routes/users";
-// import fcmNotificationRoutes from "../src/routes/users";
-// import firebaseAdminNotificationRoutes from "../src/routes/users";
+const index_1 = __importDefault(require("./routes/index"));
 const app = (0, express_1.default)();
 // Express middlewares
 app.use((0, morgan_1.default)("dev"));
@@ -25,10 +23,9 @@ app.use((0, cookie_parser_1.default)());
 app.use((0, helmet_1.default)());
 // app.use(express.static(path.join(__dirname, "public")));
 app.use((0, cors_1.default)());
-app.use("/", (req, res) => {
-    res.send('Hello world!');
-});
-// app.use("/user/api", userRoutes);
-// app.use("/notification/fcm", fcmNotificationRoutes);
-// app.use("/notification/firebaseadmin", firebaseAdminNotificationRoutes);
+// app.use("/", (req: Request, res: Response): void => {
+//     res.send('Hello world!');
+// });
+// Routes
+app.use('/', index_1.default);
 exports.default = app;

@@ -8,8 +8,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
-const createUser = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
+const createUser = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log("Controller::::", request);
     try {
         response.json({
             message: "User created."
@@ -19,7 +19,7 @@ const createUser = (request, response) => __awaiter(void 0, void 0, void 0, func
         response.json({ message: "Failed to create user." });
     }
 });
-const updateUser = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
+const updateUser = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         response.json({
             message: "User updated."
@@ -29,7 +29,7 @@ const updateUser = (request, response) => __awaiter(void 0, void 0, void 0, func
         response.json({ message: "Failed to update user." });
     }
 });
-const deleteUser = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
+const deleteUser = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         response.json({
             message: "User deleted."
@@ -39,7 +39,7 @@ const deleteUser = (request, response) => __awaiter(void 0, void 0, void 0, func
         response.json({ message: "Failed to delete user." });
     }
 });
-const getUserById = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
+const getUserById = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         response.json({
             message: "User detail returned."
@@ -50,7 +50,7 @@ const getUserById = (request, response) => __awaiter(void 0, void 0, void 0, fun
         response.json({ message: "Failed to return user details." });
     }
 });
-const getAllUsers = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
+const getAllUsers = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         response.json({
             message: "Get all users."
@@ -60,7 +60,7 @@ const getAllUsers = (request, response) => __awaiter(void 0, void 0, void 0, fun
         response.json({ message: "Failed to get all user." });
     }
 });
-const authenticateUser = (request, response) => __awaiter(void 0, void 0, void 0, function* () {
+const authenticateUser = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         response.json({
             message: "User authenticated."
@@ -70,7 +70,7 @@ const authenticateUser = (request, response) => __awaiter(void 0, void 0, void 0
         response.json({ message: "Failed to authenticate user." });
     }
 });
-exports.default = {
+module.exports = {
     createUser,
     updateUser,
     deleteUser,

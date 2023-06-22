@@ -6,9 +6,7 @@ import logger from "morgan";
 import helmet from "helmet";
 import cors from "cors";
 
-// import userRoutes from "../src/routes/users";
-// import fcmNotificationRoutes from "../src/routes/users";
-// import firebaseAdminNotificationRoutes from "../src/routes/users";
+import routes from "./routes/index";
 
 const app: Application = express();
 
@@ -24,13 +22,11 @@ app.use(helmet());
 // app.use(express.static(path.join(__dirname, "public")));
 app.use(cors());
 
-app.use("/", (req: Request, res: Response): void => {
-    res.send('Hello world!');
-});
+// app.use("/", (req: Request, res: Response): void => {
+//     res.send('Hello world!');
+// });
 
-// app.use("/user/api", userRoutes);
-// app.use("/notification/fcm", fcmNotificationRoutes);
-// app.use("/notification/firebaseadmin", firebaseAdminNotificationRoutes);
-
+// Routes
+app.use('/', routes);
 
 export default app;

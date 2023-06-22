@@ -8,13 +8,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-Object.defineProperty(exports, "__esModule", { value: true });
+const constants_1 = require("../../constants/constants");
 // import * as FCM from "fcm-node";
 var FCM = require('fcm-node');
-const { FCM_SERVER_KEY } = require("../constants/constants");
-const fcm = new FCM(FCM_SERVER_KEY);
-const sendNotification = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { registration_ids, title, body } = req.body;
+const fcm = new FCM(constants_1.FCM_SERVER_KEY);
+const sendNotification = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
+    const { registration_ids, title, body } = request.body;
     console.log("req", registration_ids);
     console.log("res", title);
     console.log("next", body);
@@ -40,25 +39,25 @@ const sendNotification = (req, res) => __awaiter(void 0, void 0, void 0, functio
                     payload: "message" // payload
                 }
             };
-            fcm.send(message, (err, response) => {
+            fcm.send(message, (err, result) => {
                 if (err) {
                     console.log("Something has gone wrong!", JSON.stringify(err));
-                    res.send(err);
+                    response.json(err);
                 }
                 else {
-                    console.log("Successfully sent with response: ", response);
-                    res.send(response);
+                    console.log("Successfully sent with response: ", result);
+                    response.json(result);
                 }
             });
         }
         else {
-            res.send({ message: "No registration ids found." });
+            response.json({ message: "No registration ids found." });
         }
     }
     catch (error) {
-        res.json({ error: error });
+        response.json({ error: error });
     }
 });
-exports.default = {
-    sendNotification
+module.exports = {
+    sendNotification,
 };
