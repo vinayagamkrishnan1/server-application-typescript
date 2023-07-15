@@ -10,7 +10,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const constants_1 = require("../../constants/constants");
 // import * as FCM from "fcm-node";
-const FCM = require('fcm-node');
+const FCM = require("fcm-node");
 const fcm = new FCM(constants_1.FCM_SERVER_KEY);
 const sendNotification = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
     const { registration_ids, title, body } = request.body;

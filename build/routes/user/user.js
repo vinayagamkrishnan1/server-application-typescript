@@ -16,7 +16,6 @@ const express_1 = __importDefault(require("express"));
 const index_1 = require("../../controllers/index");
 const router = express_1.default.Router();
 router.post('/create', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log("route::::", req);
     index_1.userController.createUser(req, res, next);
 }));
 router.put('/update', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {

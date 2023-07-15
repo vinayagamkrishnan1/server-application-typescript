@@ -9,7 +9,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 const createUser = (request, response, next) => __awaiter(void 0, void 0, void 0, function* () {
-    console.log("Controller::::", request);
     try {
         response.json({
             message: "User created."
@@ -46,7 +45,6 @@ const getUserById = (request, response, next) => __awaiter(void 0, void 0, void 
         });
     }
     catch (error) {
-        console.log(":::::::::", JSON.stringify(error));
         response.json({ message: "Failed to return user details." });
     }
 });
